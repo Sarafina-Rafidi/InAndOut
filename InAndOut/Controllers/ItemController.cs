@@ -1,5 +1,7 @@
 ﻿using InAndOut.Data;
+using InAndOut.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace InAndOut.Controllers
 {
@@ -14,7 +16,8 @@ namespace InAndOut.Controllers
 
         public IActionResult Index()
         {
-            var objItemList = _db.Items.ToList();
+            //var objItemList = _db.Items.ToList();
+            IEnumerable<Item> objItemList = _db.Items;
             return View(objItemList);
         }
     }
