@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<Item>
 
 
 @{
@@ -6,4 +6,32 @@
 }
 
 
+<div class="container shadow p-3 rounded">
+    <h1 class="mb-3">Item List</h1>
+    <table class="table table-bordered table-striped" style="width:100%">
+        <thead class="table-primary">
+            <tr>
+                <th>Item Name</th>
+                <th>Borrower</th>
+                <th>Lender</th>
+            </tr>
+        </thead>
 
+        <tbody>
+            @foreach (var obj in Model)
+            {
+                <tr>
+                    <td>
+                        @obj.ItemName
+                    </td>
+                    <td>
+                        @obj.Borrower
+                    </td>
+                    <td>
+                        @obj.Lender
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
