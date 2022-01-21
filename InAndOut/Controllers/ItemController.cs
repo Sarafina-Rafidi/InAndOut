@@ -20,5 +20,25 @@ namespace InAndOut.Controllers
             IEnumerable<Item> objItemList = _db.Items;
             return View(objItemList);
         }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Item obj)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Items.Add(obj);
+                _db.SaveChanges();
+                TempData["success"] = "Item created successfully";
+                return RedirectToAction("Index");
+            }
+
+            return View(obj);
+        }
     }
 }
