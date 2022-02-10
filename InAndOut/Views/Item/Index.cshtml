@@ -7,8 +7,17 @@
 
 
 <div class="container shadow p-3 rounded">
-    <h1 class="mb-3">Item List</h1>
-    <a asp-controller="Item" asp-action="Create">Create New Item</a>
+    <div class="row pt-3 mb-3">
+        <div class="col-6">
+            <h2 class="text-primary">Item List</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controlller="Category" asp-action="Create" class="btn btn-primary mb-3 text-end">
+                <i class="bi bi-plus-circle"></i>
+                &nbsp; Create New Item</a>
+        </div>
+    </div>
+
     <table class="table table-bordered table-striped" style="width:100%">
         <thead class="table-primary">
             <tr>
